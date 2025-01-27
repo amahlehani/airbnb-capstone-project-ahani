@@ -4,9 +4,9 @@ import auth from "../middleware/auth.js";
 
 const router = express.Router();
 
-router.get("/host", auth, getHostReservations);
-router.get("/user", auth, getUserReservations);
-router.post("/", createReservation);
-router.delete("/:id", auth, deleteReservation);
+router.get("/host", auth("host"), getHostReservations);
+router.get("/user", auth("user"), getUserReservations);
+router.post("/", auth("user"), createReservation);
+router.delete("/:id", auth("user"), deleteReservation);
 
 export default router;

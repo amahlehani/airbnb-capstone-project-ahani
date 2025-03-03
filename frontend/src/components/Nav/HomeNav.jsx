@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import './HomeNav.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined';
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
@@ -9,6 +9,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 import SearchIcon from '@mui/icons-material/Search';
+import { getUserRole } from '../../utils/auth';
 
 const HomeNav = () => {
     const [checkInDate, setCheckInDate] = useState(null);
@@ -17,6 +18,11 @@ const HomeNav = () => {
     const [childCount, setChildCount] = useState(0);
     const [showGuestPopup, setShowGuestPopup] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
+    const [isLoginOpen, setIsLoginOpen] = useState(false);
+
+    const navigate = useNavigate();
+
+    const role = getUserRole();
 
     const popRef = useRef(null);
     const buttonRef = useRef(null);
@@ -67,6 +73,43 @@ const HomeNav = () => {
         };
       }, []);
 
+      const toggleLoginDropdown = () => {
+        setIsLoginOpen(!isLoginOpen);
+      };
+
+      const closeLoginDropdown = (e) => {
+        // Close the dropdown if the user clicks outside
+        if (!e.target.closest('.account-dropdown')) {
+          setIsLoginOpen(false);
+        }
+      };
+
+      React.useEffect (() => {
+        window.addEventListener('click', closeLoginDropdown);
+        return () => {
+          window.removeEventListener('click', closeLoginDropdown);
+        };
+      }, []);
+
+      const handleBecomeAdmin = () => {
+        if (!role) {
+            alert("You must login first!");
+            navigate("/login");
+            return;
+        }
+    
+        if (role === "admin") {
+            navigate("/create-listing");
+        } else {
+            alert("You are not an admin.");
+        }
+      };
+
+      const handleLogout = () => {
+        localStorage.removeItem("role");
+        localStorage.removeItem("token");
+        navigate("/login");
+      };
 
   return (
     <>
@@ -87,15 +130,22 @@ const HomeNav = () => {
             <Link to='/'>Online Experiences</Link>
         </div>
         <div className='home-right-container'>
-            <Link to='/' className='home-link'>
+            <button onClick={handleBecomeAdmin} className='home-link host-btn'>
                 Airbnb your home
-            </Link>
+            </button>
             <LanguageOutlinedIcon fontSize='small' />
             <div className='home-menu-profile'>
                 <MenuOutlinedIcon fontSize='small' />
-                <button className='home-account-circle'>
-                    <AccountCircleIcon fontSize='large' />
-                </button>
+                <div className='account-dropdown'>
+                  <button className='home-account-circle' onClick={toggleLoginDropdown}>
+                      <AccountCircleIcon fontSize='large' />
+                  </button>
+                  {isLoginOpen && (
+                        <div id="accountDropdown" className="account-dropdown-content">
+                          {role ? <button onClick={handleLogout}>Logout</button> : <a href="/login">Login</a>}
+                        </div>
+                    )}
+                </div>
             </div>
         </div>
     </div>

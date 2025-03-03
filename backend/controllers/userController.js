@@ -1,5 +1,9 @@
 import User from "../models/User.js";
 import jwt from "jsonwebtoken";
+import bcrypt from "bcrypt";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 export const register = async (req, res) => {
     try {
@@ -15,10 +19,13 @@ export const register = async (req, res) => {
         if (existingUser) {
             return res.status(400).json({ message: 'Username already taken' });
         }
+
+        const saltRounds = 10;
+        const hashedPassword = await bcrypt.hash(password, saltRounds);
   
         const newUser = new User({
             username,
-            password,
+            password: hashedPassword,
             role: userRole, 
         });
   
@@ -39,10 +46,11 @@ export const login = async (req, res) => {
             return res.status(400).json("Invalid username");
         } 
 
-        const isPasswordCorrect = await user.isPasswordCorrect(password);
+        const isPasswordCorrect = await bcrypt.compare(password, user.password);
         if (!isPasswordCorrect) {
             return res.status(400).json({ message: 'Invalid password' });
         }
+
 
         const token = jwt.sign(
             { id: user._id, username: user.username, role: user.role },

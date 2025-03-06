@@ -12,16 +12,20 @@ export const getAccommodation = async (req, res) => {
 
 export const createAccommodation = async (req, res) => {
     try {
-        const imageUrl = req.file.path;
+        const imageUrls = req.files.map(file => file.path); 
+
         const accommodationData = {
             ...req.body,
-            images: [imageUrl],
+            images: imageUrls, 
         };
-        const accommodation = await Accommodation(accommodationData).save();
-        res.status(201).json("Accommodation created successfully", accommodation);
+
+        const accommodation = new Accommodation(accommodationData);
+        await accommodation.save();
+
+        res.status(201).json({ message: "Accommodation created successfully", accommodation });
     } catch (error) {
-        console.error("Error in creating accommodation: ", error.message);
-        res.status(500).json("Server error");
+        console.error("Error in creating accommodation:", error.message);
+        res.status(500).json({ message: "Server error", error: error.message });
     }
 };
 

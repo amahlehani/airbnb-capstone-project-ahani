@@ -17,11 +17,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url("https://s3-alpha-sig.figma.com/img/8021/96a6/83d8b4f496c94cf0a33728d8f6e90e4b?Expires=1739145600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=YmWSdSbsTanrhCrpIQSa0Y4eEpd8lzSVgarO01bBUqk5NP4Aq6i7U52yBBgA9SVrmfZc2kyaOZ2-fxccUZRyi~09V3FtB8XQnlF2ZV7gYgvgPO3m7fvGEatH2Dr0ZJOWHlewDjJbdDsbugBn054AF3hXQmCgwdTGA1FCvaAkm8UH6F5OPmaBGHlsPSIS2hWlzdel3cWKJx4mf5OEWUft6oIVYFHrVAHzXLAOvcpHtOZPfuTrmX5CIl5qeFad~69woG4H5FRhM8sLNVzhh6Bg6TExF4GydoKWvhgF-WJmoljpJJTGyKjpSXYtmPAFGVEXO4tkxGMjhu7aMGD4ERzkeg__" ) center;
-    background-size: cover;
     height: 640px;
     width: 1200px;
     border-radius: 8px;
+}
+
+.hero-card-container img {
+    display: flex;
+    height: 640px;
+    width: 100%;
+    border-radius: 8px;
+    position: relative;
 }
 
 .hero-text-container {
@@ -29,6 +35,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: absolute;
     margin-top: 390px;
 }
 
@@ -66,16 +73,6 @@
     gap: 24px;
 }
 
-.trip-inspo-card-title {
-    font-size: 36px;
-    color: white;
-}
-
-.trip-inspo-card-subtitle {
-    font-size: 18px;
-    color: white;
-}
-
 .discover-container {
     display: flex;
     flex-direction: column;
@@ -93,22 +90,37 @@
     display: flex;
     flex-direction: row;
     gap: 24px;
+    position: relative;
 }
 
 .discover-card1 {
-    background: url('https://s3-alpha-sig.figma.com/img/3679/a298/196b41cd98272a64e19b9681beb746f0?Expires=1739145600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=CQrZwl41~dpDOnthSk9ZCDqa-GOrfbsciyhodYqN3bVtF6OdnGKfqAniPR-tFInUqjayC--qAX8rpwP~jRAtxQhxmE8VkcfRumy2k~ANEibwNxLsHugoCFyZf6y20-nkDckz5HMtA7Jl4GH4yK~nWKiRGp6etOGQ35sgB8tin0WQ7TZEqkZ-gv8QbSz-pCmfnG8~Zy2dTneCEajdxncePyQZVfKbEP1EGVJpCN6Weu5fYaxII2rn6f0~aIxCO~DyFgQcX~Jjf9DaFK4q6J6IhJ-GrjrCv2WNHzQVznMZ4gP~usKh3IC8DL3W4XGMaLqzG~28GY0wiTfwipSG9VXBbA__');
-    background-size: cover;
     height: 628px;
     width: 628px;
     border-radius: 8px;
 }
 
+.discover-card1 img {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
 .discover-card2 {
-    background: url('https://s3-alpha-sig.figma.com/img/7894/1428/a63173a16c7efe522cab3d32fa5975ee?Expires=1739145600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=fFXovOH92mWXtFfg3KhNW-k7ho76j05HWmlpLqAqQ9WQoKoydPAFPmS9xELFYySIKIOY1rZJOv6Zx12qe8NpW0kGe~e9hHlmiu-T3HhVaozdKpAM4hksTGTOlFH3tvtS-QXCIS3jdvEEyBEHQGDG-L1z9kIn3VJpfhZezZ9FB4MXObVrk7M7izBfkR0QtWUxidb4LoLNAsJrIDAkDEwxrA4mls4-1nse7amtzyvDD0UPqdV3~x8Pi-AtqI8eTa6V3BE4vTXFytb8IGRmxe2AVEUCC~dIfQLeIFF6QHtMwlJfFiQORVLYlNH63zZqLeXuUobdDAxg02uVS-OfxlQrDA__');
-    background-size: cover;
     height: 628px;
     width: 628px;
     border-radius: 8px;
+
+}
+
+.discover-card2 img {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+    
 }
 
 .discover-card-text {
@@ -122,6 +134,8 @@
     flex-direction: column;
     width: 380px;
     padding: 80px;
+    position: absolute;
+    top: 0%;
 }
 
 .gift-cards-container {
@@ -152,15 +166,23 @@
     height: 640px;
     border-radius: 8px;
     gap: 48px;
-    background: url('https://s3-alpha-sig.figma.com/img/5ed8/a779/efd4d7b308f8c6bdd6b801b638cc68d2?Expires=1739145600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=q6IvoE23uj4s2HrvHUUpH2AN8gMw4Xlz9fQgLO5Ay0R3a5SBg9qKeZdLxlZylTW8HJXxl32GuqS4tmO15hz7wmk1-0T2eIJ70fmsWermOXS5gtmAideyaQrOg5l91SJaT0Tx2foDxHJPf9sf4AJ5uB4guZnAX7BzBKRsTqKPNObdl32WkVy59WTCw3Z0PsVwha90HwqTqiE~hse7DZXkAq1xO4sN-4O6nJsDnKwHfoB5dlLRiWDTWBZEvPQzKml7o1npN1KUxiQeWnzPJlouyHAAEWBGHU4eFk8rqeF64G7wM3D16VKHcl5~RDmJhcj~eVwD9euK~FA4LSqWDi2btA__');
-    background-size: cover;
-    background-position: 80% 60%;
+    position: relative;
+}
+
+.questions-container img{
+    height: 640px;
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+    object-position: 80% 60%;
 }
 
 .questions-text-container {
     display: flex;
     flex-direction: column;
     padding: 80px 735px 80px 80px;
+    position: absolute;
+    top: -2%;
 }
 
 .questions-text {
@@ -331,7 +353,7 @@
 .language-currency {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 15px;
     margin-right: 30px;
 }
 
@@ -339,4 +361,5 @@
     display: flex;
     align-items: center;
     gap: 20px;
+    cursor: pointer;
 }

@@ -33,15 +33,21 @@ const AdminNav = () => {
 
         <div className='filter-header'>
             <div className='filter-header-container'>
-                <button className='filter-reservation'>
-                    View Reservations
-                </button>
-                <button className='filter-listing'>
-                    View Listings
-                </button>
-                <button className='filter-create'>
-                    Create Listing
-                </button>
+                <Link to='/view-reservations'>  
+                    <button className='filter-reservation'>
+                        View Reservations
+                    </button>
+                </Link>
+                <Link to='/view-listings'>
+                    <button className='filter-listing'>
+                        View Listings
+                    </button>
+                </Link>
+                <Link to='/create-listing'>
+                    <button className='filter-create'>
+                        Create Listing
+                    </button>
+                </Link>
             </div>
         </div>
     </>

@@ -6,7 +6,7 @@ import upload from "../middleware/cloudinaryStorage.js";
 const router = express.Router();
 
 router.get("/", getAccommodation);
-router.post("/", auth("host"), upload.array("images"), createAccommodation);
+router.post("/", auth("host"), upload.array("images", 5), createAccommodation);
 router.delete("/:id", auth("host"), deleteAccommodation);
 
 

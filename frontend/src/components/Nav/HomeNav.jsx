@@ -152,16 +152,17 @@ const HomeNav = () => {
     <div className='header-bottom'>
         <div className='bottom-header-container'>
             <div className='search-where'>
-                <p>Hotels</p>
+                <p>Locations</p>
                 <div className='dropdown'>
                     <button className="dropbtn" onClick={toggleDropdown}>
-                        Select hotels
+                        Select location
                     </button>
                     {isOpen && (
                         <div id="searchDropdown" className="dropdown-content">
-                            <a href="#option1">Option 1</a>
-                            <a href="#option2">Option 2</a>
-                            <a href="#option3">Option 3</a>
+                            <a href="/locations">All locations</a>
+                            <a href="#option2">Cape Town</a>
+                            <a href="#option3">Paris</a>
+                            <a href="#option4">Thailand</a> 
                         </div>
                     )}                
                 </div>

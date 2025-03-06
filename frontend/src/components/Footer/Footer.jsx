@@ -58,8 +58,19 @@ const Footer = () => {
           <div className='footer-icons'>
             <div className='language-currency'>
             <LanguageOutlinedIcon fontSize="small" />
-              <p>English (UK)</p>
-              <p>R ZAR</p>
+              <select name="language-picker-select" id="language-picker-select">
+                <option lang="en" value="english" selected>English (UK)</option>
+                <option lang="de" value="deutsch">Deutsch</option>
+                <option lang="fr" value="francais">Français</option>
+              </select>
+              
+              <select name='currency-picker-select' id='currency-picker-select'>
+                <option selected>R ZAR</option>
+                <option>$ USD</option>
+                <option>€ EUR</option>
+                <option>£ GBP</option>
+
+              </select>
             </div>
             <div className='social-media-icons'>
               <FacebookRoundedIcon fontSize='small' />

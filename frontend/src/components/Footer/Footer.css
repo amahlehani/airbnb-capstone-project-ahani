@@ -1,0 +1,23 @@
+#language-picker-select {
+    width:100px;
+    outline: none;
+    height: 24px;
+    color: #4B5563;
+    border: none;
+    background-color: transparent;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 500;
+}
+
+#currency-picker-select {
+    width:65px;
+    outline: none;
+    height: 24px;
+    color: #4B5563;
+    border: none;
+    background-color: transparent;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 500;
+}

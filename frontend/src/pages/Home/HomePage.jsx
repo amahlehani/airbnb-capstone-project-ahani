@@ -1,8 +1,17 @@
 /* eslint-disable react/no-unescaped-entities */
 import './HomePage.css'
 import HomeNav from '../../components/Nav/HomeNav'
-import { Button, Card, CardActionArea, CardContent, CardMedia } from '@mui/material'
+import { Button, Card, CardActionArea, CardContent, CardMedia, Typography } from '@mui/material'
 import Footer from '../../components/Footer/Footer'
+import HeroImg from '../../assets/hero-img.jpeg'
+import DurbanCard from '../../assets/durban-card.jpeg'
+import JoburgCard from '../../assets/joburg-card.jpeg'
+import Woodmead from '../../assets/woodmead.jpeg'
+import HydePark from '../../assets/hydepark.jpeg'
+import ThingsToDo from '../../assets/things-to-do.jpeg'
+import ThingsToDoHome from '../../assets/things-to-do-home.jpeg'
+import GiftCards from '../../assets/gift-cards.jpeg'
+import AskHost from '../../assets/ask-superhost.jpeg'
 
 const HomePage = () => {
   return (
@@ -11,6 +20,7 @@ const HomePage = () => {
         <HomeNav />
         <div className='hero-card'>
           <div className='hero-card-container'>
+            <img src={HeroImg} alt='hero-img' />
             <div className='hero-text-container'>
               <p className='hero-card-text'>Not sure where to go? Perfect.</p>
               <Button 
@@ -38,16 +48,16 @@ const HomePage = () => {
                   <CardMedia 
                     component='img'
                     height='200'
-                    image='https://s3-alpha-sig.figma.com/img/d5c1/6cba/8bc1958720a3d767d19d62a93cd1ff30?Expires=1739145600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=PI7npuBh9H8OiuNloj0wBrsiG4qOzKMSy9AIb3TPAOOR1gQF37sIFo~34evtglLWnpEuOH2CYEJGIISGCffu55JyMKG4pkfxHBYlfl7xEUxbKV3ux2Kkcl3s8KHfh5fR60Ruod~8uL5hYMfVwLqzXhsfdPoE03bEz5V1UFxuCMHK3ofldc6jqH9ppKFWKGvgfF85bqh7lvsZ9u5W0Ilpi5nTm-HoMpH4RoVAsw-pC0yL7mVudweE0IIjPGTRS~sPbVKztMhXavs3ihJ3ihqfQ54sX8MEICplGVfbLzY17gETK2GLWPj3zLwSUP88l58TzvZU5D-j4aftVukTCilezQ__'
+                    image={DurbanCard}
                     alt='sandton-city-hotel'
                   />
                   <CardContent sx={{padding:'24px 16px 96px 16px', backgroundColor:'#cc2d4a', height:'244px'}}>
-                    <p className='trip-inspo-card-title'>
+                    <Typography sx={{fontSize: 36, color: 'white'}}>
                       Sandton City      Hotel
-                    </p>
-                    <p className='trip-inspo-card-subtitle'>
+                    </Typography>
+                    <Typography sx={{fontSize: 18, color: 'white'}}>
                       53 km away
-                    </p>
+                    </Typography>
                   </CardContent>
                 </CardActionArea>
               </Card>
@@ -56,16 +66,16 @@ const HomePage = () => {
                   <CardMedia 
                     component='img'
                     height='200'
-                    image='https://s3-alpha-sig.figma.com/img/d1d5/8d1e/618cfa54b385b8498f4a61ba36fac91b?Expires=1739145600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Af~OaxjPutdI2TYgRCa-UNG5LfNR5gRDTXbje2KPiFFMsjsdfyC7hxo4f5cQVOFjyDSSmHQYfZfkeTh3lRd-SXL9td8u0KzKMJv-kflAYDnIZ3B8egAmOI9VxfwuzVJNIIedfVXKG6H9bFKItu5bBFkrdbQHYal14YPOTqjbqmGw0iOHX~29aYgEa-5XE~AVBJ3q06jVii14fpFU9nk9gGXCHB62DZWqCJ6WQzkAO-nMag8DoeuD~43ChcnOWJrDHOCVXSlI981f-q35h9CEHtmFa7ZfzWNmXY~dVMjivGCqG~F43By6NdNFJA4BrvtaCGsCDRxjwiVRlmmfLi9FRQ__'
+                    image={JoburgCard}
                     alt='joburg-city-hotel'
                   />
                   <CardContent sx={{padding:'24px 16px 96px 16px', backgroundColor:'#bc1a6e', height:'244px'}}>
-                    <p className='trip-inspo-card-title'>
+                    <Typography sx={{fontSize: 36, color: 'white'}}>
                       Joburg City      Hotel
-                    </p>
-                    <p className='trip-inspo-card-subtitle'>
+                    </Typography>
+                    <Typography sx={{fontSize: 18, color: 'white'}}>
                       168 km away
-                    </p>
+                    </Typography>
                   </CardContent>
                 </CardActionArea>
               </Card>
@@ -74,16 +84,16 @@ const HomePage = () => {
                   <CardMedia 
                     component='img'
                     height='200'
-                    image='https://s3-alpha-sig.figma.com/img/9710/36bd/867b0c3b96f2536c3194012f4a8e6a35?Expires=1739145600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=akC6LooXWY1m01k5BvsuRKBJaILjEJsFxSPoGG2ZgVAkpzDmnEclW8wS5T3EbEZwEZLxoXyQEF9SuMyq-tvyZpT4ZWZReH7FpcJi8gqwYIpLW7ZjCIxC1usV4BWI6ajRezspv2a9LF9XZGQ39tkROEjNQOCpdiHzIzhgAr8ZiGkICnvy0hN4Lxh7ezvWgcnvQB25SqpZqzvTONFOO-nx35dPm9SQWDVdmr50b2VrKQcy807sJ6R6NV1taOqdh9Ficm-ACwPkRzLprkJ9NrXU7zQ98M8rSkIclZSxMy3gxaF~qTYGJGi47XwZ4XHdGcTrjFR2I~GfbjFM3drrCjkc6Q__'
+                    image={Woodmead}
                     alt='woodmead-hotel'
                   />
                   <CardContent sx={{padding:'24px 16px 96px 16px', backgroundColor:'#de3151', height:'244px'}}>
-                    <p className='trip-inspo-card-title'>
+                    <Typography sx={{fontSize: 36, color: 'white'}}>
                       Woodmead      Hotel
-                    </p>
-                    <p className='trip-inspo-card-subtitle'>
+                    </Typography>
+                    <Typography sx={{fontSize: 18, color: 'white'}}>
                       48 km away
-                    </p>
+                    </Typography>
                   </CardContent>
                 </CardActionArea>
               </Card>
@@ -92,16 +102,16 @@ const HomePage = () => {
                   <CardMedia 
                     component='img'
                     height='200'
-                    image='https://s3-alpha-sig.figma.com/img/0e73/8a88/3f20a6ea5306e1bc71f44938a7c19e9b?Expires=1739145600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=CWUp49pcCP-bXmgP9noVHyOl3hp9J3Ou5LD5TZQiAc5Sx9uEwgk5Gzrx2ZB7vIIHs~LStcsN5LrI3PPR2ghFDOUV6cydaj~z3m0QIVfm9gUB-Vt3Wl1vL-YJYyhSOdyMIJqlpRIwtLaDOoFKe8G0vIiwEZ1lrmv2eBqiSb5pbHZVY1v58Kvm6vM7hD9C6EMqcQG1zj9cmkxCXOpuZHATHlvnY68drrwFVd5PUMpnjnkWjbaeNEIp2RTeuTZTHn9K8wMUeEoMdxrvLroeBb7uE-o9uxjUvTDLM7gZjGBbz35yqksFojmcUr7L38KGY8mJVwJlhgPMZH9k019qJxMwkg__'
+                    image={HydePark}
                     alt='hyde-park-hotel'
                   />
                   <CardContent sx={{padding:'24px 16px 96px 16px', backgroundColor:'#d93b30', height:'244px'}}>
-                    <p className='trip-inspo-card-title'>
+                    <Typography sx={{fontSize: 36, color: 'white'}}>
                       Hyde Park      Hotel
-                    </p>
-                    <p className='trip-inspo-card-subtitle'>
+                    </Typography>
+                    <Typography sx={{fontSize: 18, color: 'white'}}>
                       34 km away
-                    </p>
+                    </Typography>
                   </CardContent>
                 </CardActionArea>
               </Card>
@@ -111,6 +121,7 @@ const HomePage = () => {
             <p>Discover Airbnb Experiences</p>
             <div className='discover-cards'>
               <div className='discover-card1'>
+                <img src={ThingsToDo} alt='things-to-do-on-trip' />
                 <div className='discover-card-text-container'>
                   <p className='discover-card-text'>
                     Things to do
@@ -128,6 +139,7 @@ const HomePage = () => {
                   </div>
                 </div>
               <div className='discover-card2'>
+                <img src={ThingsToDoHome} alt='things-to-do-home' />
                 <div className='discover-card-text-container'>
                   <p className='discover-card-text'>
                     Things to do
@@ -166,12 +178,13 @@ const HomePage = () => {
           </div>
           <div className='gift-cards-img'>
             <img 
-              src='https://s3-alpha-sig.figma.com/img/43b8/8762/e0a70df6eb554b492d0b7d2633a1ecb1?Expires=1739145600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=f6Tpd3YvYebpQojss3xSIhEJBd1~170wZwqn5Ro1ZxsTZEpyQcY7LbaMAmrGtRipwavzNBBRUCZk~AfZXsySfUTKQ123AZ1SN3SF-efyEz~lnvIxM7NzjuHaxoD5~yT-Acka6HGOGfTpB6R-c-C-s7mEsiT6cSmFZ0cbJFmxSV6NW7qtKuEzjvvKhX9GeQFv2jWpyZJYq51fRuUMKPCesYxDb9tgYds5JCSrcmQ9o59KMo7QNiS0-fa8eHHdgqf3iakd1iGt7c7232LcTmmMaHbZcP86EpBswiaFtYU2BsZnblOXQyVU8Fw99xz4~w8X3AfLr5qnspa~spQVugu7BQ__'
+              src={GiftCards}
               alt='gift-cards'
             />
           </div>
         </div>
         <div className='questions-container'>
+          <img src={AskHost} alt='ask-superhost' />
           <div className='questions-text-container'>
               <p className='questions-text'>
                 Questions

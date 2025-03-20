@@ -1,365 +1,361 @@
 /* Home page styles */
 .home-container {
-    display: flex;
-    flex-direction: column;
-    background: black;
-    height: 977px;
-    padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  background: black;
+  height: 977px;
+  padding-top: 20px;
 }
 
 /* Hero section styles */
 .hero-card {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .hero-card-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 640px;
-    width: 1200px;
-    border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 640px;
+  width: 1200px;
+  border-radius: 8px;
 }
 
 .hero-card-container img {
-    display: flex;
-    height: 640px;
-    width: 100%;
-    border-radius: 8px;
-    position: relative;
+  display: flex;
+  height: 640px;
+  width: 100%;
+  border-radius: 8px;
+  position: relative;
 }
 
 .hero-text-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    margin-top: 390px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  margin-top: 390px;
 }
 
 .hero-card-text {
-    font-size: 48px;
-    color: white;
-    margin-bottom: 30px;
+  font-size: 48px;
+  color: white;
+  margin-bottom: 30px;
 }
 
 /* Inspiration container styles */
 .inspiration-container {
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    padding: 96px 80px;
-    gap: 96px;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 96px 80px;
+  gap: 96px;
 }
 
 .trip-inspo-container {
-    display: flex;
-    flex-direction: column;
-    height: 536px;
-    gap: 48px;
+  display: flex;
+  flex-direction: column;
+  height: 536px;
+  gap: 48px;
 }
 
 .trip-inspo-container p {
-    font-size: 36px;
-    font-weight: 500;
-    line-height: 44px;
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 44px;
 }
 
 .trip-inspo-cards {
-    display: flex;
-    flex-direction: row;
-    gap: 24px;
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
 }
 
 .discover-container {
-    display: flex;
-    flex-direction: column;
-    height: 720px;
-    gap: 48px;
+  display: flex;
+  flex-direction: column;
+  height: 720px;
+  gap: 48px;
 }
 
 .discover-container p {
-    font-size: 36px;
-    font-weight: 500;
-    line-height: 44px;
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 44px;
 }
 
 .discover-cards {
-    display: flex;
-    flex-direction: row;
-    gap: 24px;
-    position: relative;
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  position: relative;
 }
 
 .discover-card1 {
-    height: 628px;
-    width: 628px;
-    border-radius: 8px;
+  height: 628px;
+  width: 628px;
+  border-radius: 8px;
 }
 
 .discover-card1 img {
-    display: flex;
-    height: 100%;
-    width: 100%;
-    border-radius: 8px;
-    object-fit: cover;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
 }
 
 .discover-card2 {
-    height: 628px;
-    width: 628px;
-    border-radius: 8px;
-
+  height: 628px;
+  width: 628px;
+  border-radius: 8px;
 }
 
 .discover-card2 img {
-    display: flex;
-    height: 100%;
-    width: 100%;
-    border-radius: 8px;
-    object-fit: cover;
-    
+  display: flex;
+  height: 100%;
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
 }
 
 .discover-card-text {
-    font-size: 48px;
-    color: white;
-    margin-bottom: 20px;
+  font-size: 48px;
+  color: white;
+  margin-bottom: 20px;
 }
 
 .discover-card-text-container {
-    display: flex;
-    flex-direction: column;
-    width: 380px;
-    padding: 80px;
-    position: absolute;
-    top: 0%;
+  display: flex;
+  flex-direction: column;
+  width: 380px;
+  padding: 80px;
+  position: absolute;
+  top: 0%;
 }
 
 .gift-cards-container {
-    display: flex;
-    flex-direction: row;
-    height: 320px;
-    gap: 48px;
+  display: flex;
+  flex-direction: row;
+  height: 320px;
+  gap: 48px;
 }
 
 .gift-cards-text-container {
-    gap: 24px;
-    width: 377.78px;
-    height: 192px;
-    padding: 64px 0;
+  gap: 24px;
+  width: 377.78px;
+  height: 192px;
+  padding: 64px 0;
 }
 
 .gift-cards-text {
-    font-size: 48px;
-    font-weight: 500;
-    margin-bottom: 20px;
+  font-size: 48px;
+  font-weight: 500;
+  margin-bottom: 20px;
 }
 
 .gift-cards-img img {
-    width: 854.22px;
+  width: 854.22px;
 }
 
 .questions-container {
-    height: 640px;
-    border-radius: 8px;
-    gap: 48px;
-    position: relative;
+  height: 640px;
+  border-radius: 8px;
+  gap: 48px;
+  position: relative;
 }
 
-.questions-container img{
-    height: 640px;
-    width: 100%;
-    border-radius: 8px;
-    object-fit: cover;
-    object-position: 80% 60%;
+.questions-container img {
+  height: 640px;
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+  object-position: 80% 60%;
 }
 
 .questions-text-container {
-    display: flex;
-    flex-direction: column;
-    padding: 80px 735px 80px 80px;
-    position: absolute;
-    top: -2%;
+  display: flex;
+  flex-direction: column;
+  padding: 80px 735px 80px 80px;
+  position: absolute;
+  top: -2%;
 }
 
 .questions-text {
-    font-size: 96px;
-    font-weight: 500;
-    color: white;
-    margin-bottom: 80px;
+  font-size: 96px;
+  font-weight: 500;
+  color: white;
+  margin-bottom: 80px;
 }
 
 .prefooter-container {
-    height: 302px;
-    gap: 32px;
+  height: 302px;
+  gap: 32px;
 }
 
 .prefooter-header {
-    height: 88px;
-    
+  height: 88px;
 }
 
 .prefooter-header-text {
-    font-size: 24px;
-    font-weight: 500;
-    line-height: 32px;
-    margin-bottom: 16px;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+  margin-bottom: 16px;
 }
 
 .tabbar-text-container {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    border-bottom: 2px solid #F3F4F6;
-    cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  border-bottom: 2px solid #f3f4f6;
+  cursor: pointer;
 }
 
-.tabbar-text-container p{
-    font-size: 14px;
-    padding: 8px 0;
-    font-weight: 500;
-    color: #6B7280;   
+.tabbar-text-container p {
+  font-size: 14px;
+  padding: 8px 0;
+  font-weight: 500;
+  color: #6b7280;
 }
 
 .tabbar-text-container p:hover {
-    border-bottom: 2px solid black;
+  border-bottom: 2px solid black;
 }
 
 .active-tabbar-text {
-    color: black;
-    padding-bottom: 8px;
-    border-bottom: 2px solid black;   
+  color: black;
+  padding-bottom: 8px;
+  border-bottom: 2px solid black;
 }
 
 .prefooter-content {
-    display: flex;
-    flex-direction: row;
-    margin: 32px 0;
+  display: flex;
+  flex-direction: row;
+  margin: 32px 0;
 }
 
 .prefooter-content-text {
-    display: flex;
-    flex-direction: column;
-    width: 302px;
-    height: 40px;
-    cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  width: 302px;
+  height: 40px;
+  cursor: pointer;
 }
 
 .content-title {
-    font-size: 14px;
-    line-height: 20px;
+  font-size: 14px;
+  line-height: 20px;
 }
 
 .content-subtitle {
-    font-size: 14px;
-    line-height: 20px;
-    color: #6B7280;
+  font-size: 14px;
+  line-height: 20px;
+  color: #6b7280;
 }
 
 .prefooter-content-text:hover {
-    text-decoration: underline;
-    color: black;
+  text-decoration: underline;
+  color: black;
 }
 
 .content-title-more {
-    font-size: 14px;
-    font-weight: 500;
-    border-bottom: 1px solid black;
-    width: 73px;
+  font-size: 14px;
+  font-weight: 500;
+  border-bottom: 1px solid black;
+  width: 73px;
 }
 
 .content-title-more:hover {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 /* Footer container styles */
 .footer-container {
-    height: 424px;
-    padding: 64px 80px 24px 80px;
-    background-color: #F9FAFB;
+  height: 424px;
+  padding: 64px 80px 24px 80px;
+  background-color: #f9fafb;
 }
 
 .footer-terms {
-    display: flex;
-    height: 240px;
-    cursor: pointer;
-    margin-bottom: 48px;
+  display: flex;
+  height: 240px;
+  cursor: pointer;
+  margin-bottom: 48px;
 }
 
-.footer-head p{
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 24px;
-    cursor: auto;
-    color: black;
+.footer-head p {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  cursor: auto;
+  color: black;
 }
 
 .footer-head p:hover {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .footer-term-items {
-    color: #222222;
-    width: 302px;
-    gap: 16px;
+  color: #222222;
+  width: 302px;
+  gap: 16px;
 }
 
 .footer-term-items p {
-    margin-bottom: 16px;
-    font-size: 14px;
-    line-height: 20px;
-    color: #4B5563;
+  margin-bottom: 16px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #4b5563;
 }
 
 .footer-term-items p:hover {
-    text-decoration: underline;
-    color: black;
+  text-decoration: underline;
+  color: black;
 }
 
 .footer-copyright {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 24px 0 0 0;
-    height: 48px;
-    border-top: 1px solid lightgray;
-    color: #4B5563;
-    background-color: #F9FAFB;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 0 0 0;
+  height: 48px;
+  border-top: 1px solid lightgray;
+  color: #4b5563;
+  background-color: #f9fafb;
 }
 
-
 .copyright {
-    display: flex;
-    font-size: 14px;
-    list-style: 20px;
-    gap: 5px;
+  display: flex;
+  font-size: 14px;
+  list-style: 20px;
+  gap: 5px;
 }
 
 .footer-icons {
-    display: flex;
-    align-items: center;
-    gap: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .footer-icons p {
-    font-size: 14px;
-    text-align: center;
-    font-weight: 600;
+  font-size: 14px;
+  text-align: center;
+  font-weight: 600;
 }
 
 .language-currency {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-right: 30px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-right: 30px;
 }
 
 .social-media-icons {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  cursor: pointer;
 }

@@ -1,63 +1,62 @@
 .admin-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 95px;
-    padding: 0 36px;
-    
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 95px;
+  padding: 0 36px;
 }
 
 .filter-header {
-    display: flex;
-    flex-direction: row;
-    
-    border-bottom: 1px solid #F3F4F6;
+  display: flex;
+  flex-direction: row;
+
+  border-bottom: 1px solid #f3f4f6;
 }
 
 .filter-header-container {
-    width: 1140px;
-    height: 100px;
-    padding: 36px 0 36px 80px;
-    gap: 16px;
+  width: 1140px;
+  height: 100px;
+  padding: 36px 0 36px 80px;
+  gap: 16px;
 }
 
 .filter-reservation {
-    width: 154px;
-    height: 36px;
-    border: 1px solid #E5E7EB;
-    border-radius: 100px;
-    padding: 8px 16px;
-    margin-right: 16px;
-    font-size: 14px;
-    line-height: 20px;
-    color: #374151;
-    background-color: white;
-    cursor: pointer;
+  width: 154px;
+  height: 36px;
+  border: 1px solid #e5e7eb;
+  border-radius: 100px;
+  padding: 8px 16px;
+  margin-right: 16px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #374151;
+  background-color: white;
+  cursor: pointer;
 }
 
 .filter-listing {
-    width: 120px;
-    height: 36px;
-    border: 1px solid #E5E7EB;
-    border-radius: 100px;
-    padding: 8px 16px;
-    margin-right: 16px;
-    font-size: 14px;
-    line-height: 20px;
-    color: #374151;
-    background-color: white;
-    cursor: pointer;
+  width: 120px;
+  height: 36px;
+  border: 1px solid #e5e7eb;
+  border-radius: 100px;
+  padding: 8px 16px;
+  margin-right: 16px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #374151;
+  background-color: white;
+  cursor: pointer;
 }
 
 .filter-create {
-    width: 124px;
-    height: 36px;
-    border: 1px solid #E5E7EB;
-    border-radius: 100px;
-    padding: 8px 16px;
-    font-size: 14px;
-    line-height: 20px;
-    color: #374151;
-    background-color: white;
-    cursor: pointer;
+  width: 124px;
+  height: 36px;
+  border: 1px solid #e5e7eb;
+  border-radius: 100px;
+  padding: 8px 16px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #374151;
+  background-color: white;
+  cursor: pointer;
 }

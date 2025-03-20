@@ -9,12 +9,13 @@ import LocationDetailsPage from "./pages/LocationDetails/LocationDetailsPage.jsx
 import ViewReservationsPage from "./pages/ViewReservationsPage/ViewReservationsPage.jsx";
 import CreateListingPage from "./pages/CreateListingPage/CreateListingPage.jsx";
 import ViewListingPage from "./pages/ViewListingPage/ViewListingPage.jsx";
+import UpdateListingPage from "./pages/UpdateListingPage/UpdateListingPage.jsx"
 
 const getUserRole = () => localStorage.getItem("role");
 const isAuthenticated = () => !!localStorage.getItem("token");
 
 const AdminRoute = ({ children }) => {
-  return isAuthenticated() && getUserRole() === "admin" ? children : <Navigate to="/login" />;
+  return isAuthenticated() && getUserRole() === "host" ? children : <Navigate to="/" />;
 };
 
 const App = () => {
@@ -23,11 +24,12 @@ const App = () => {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<Login />} />
-        <Route path='/locations' element={<LocationPage />} />
-        <Route path="/listing" element={<LocationDetailsPage />} />
+        <Route path='/locations/:location' element={<LocationPage />} />
+        <Route path="/listing/:id" element={<LocationDetailsPage />} />
         <Route path='/view-reservations' element={<ViewReservationsPage />} />
-        <Route path='/create-listing' element={<CreateListingPage />} />
-        <Route path='/view-listings' element={<ViewListingPage />} />
+        <Route path='/create-listing' element={<AdminRoute><CreateListingPage /></AdminRoute>} />
+        <Route path='/view-listings' element={<AdminRoute><ViewListingPage /></AdminRoute>} />
+        <Route path="/update-listing/:id" element={<AdminRoute><UpdateListingPage /></AdminRoute>} />
       </Routes>
     </Router>
 )

@@ -1,11 +1,13 @@
-import "./CreateListingPage.css";
-import AdminNav from "../../components/Nav/AdminNav";
+import { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "../../api/apiClient";
-import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import AdminNav from "../../components/Nav/AdminNav";
+import "./UpdateListingPage.css";
 
-const CreateListingPage = () => {
+const UpdateListingPage = () => {
+  const { id } = useParams();
   const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     title: "",
     location: "",
@@ -18,105 +20,70 @@ const CreateListingPage = () => {
     amenities: [],
     enhancedCleaning: false,
     selfCheckIn: false,
+    images: [],
   });
 
-  const [selectedImages, setSelectedImages] = useState([]);
-  const [amenityInput, setAmenityInput] = useState("");
-  const [errors, setErrors] = useState({});
+  const [newImages, setNewImages] = useState([]);
+
+  useEffect(() => {
+    if (!id) {
+      console.error("Listing ID is missing");
+      return;
+    }
+
+    console.log(`Fetching listing with ID: ${id}`);
+
+    const fetchListing = async () => {
+      try {
+        const response = await axios.get(
+          `http://localhost:5000/api/accommodations/${id}`,
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          }
+        );
+        setFormData(response.data);
+      } catch (error) {
+        console.error("Error fetching listing details", error);
+      }
+    };
+    fetchListing();
+  }, [id]);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-
-    if (type === "checkbox") {
-      setFormData({ ...formData, [name]: checked });
-    } else {
-      setFormData({ ...formData, [name]: value });
-    }
+    setFormData({ ...formData, [name]: type === "checkbox" ? checked : value });
   };
 
-  const handleAddAmenity = (e) => {
-    e.preventDefault();
-    if (amenityInput.trim() !== "") {
-      setFormData({
-        ...formData,
-        amenities: [...formData.amenities, amenityInput],
-      });
-      setAmenityInput("");
-    }
-  };
-
-  const handleImageChange = async (e) => {
-    const files = Array.from(e.target.files);
-    setSelectedImages(files);
-
-    const formDataObj = new FormData();
-    files.forEach((file) => {
-      formDataObj.append("images", file);
-    });
-
-    try {
-      const response = await axios.post(
-        "http://localhost:5000/api/upload",
-        formDataObj,
-        {
-          headers: { "Content-Type": "multipart/form-data" },
-        }
-      );
-
-      console.log("Uploaded Images:", response.data);
-      setFormData({ ...formData, images: response.data.imageUrls });
-    } catch (error) {
-      console.error(
-        "Image Upload Failed:",
-        error.response ? error.response.data : error.message
-      );
-      alert("Failed to upload images.");
-    }
-  };
-
-  const validateInputs = () => {
-    let newErrors = {};
-    if (!formData.title) newErrors.title = "Title is required";
-    if (!formData.location) newErrors.location = "Location is required";
-    if (!formData.description)
-      newErrors.description = "Description is required";
-    if (!formData.price || isNaN(formData.price) || formData.price <= 0)
-      newErrors.price = "Valid price is required";
-    if (!formData.type) newErrors.type = "Type is required";
-    if (!formData.guests || formData.guests <= 0)
-      newErrors.guests = "At least 1 guest required";
-    if (!formData.bedrooms || formData.bedrooms <= 0)
-      newErrors.bedrooms = "At least 1 bedroom required";
-    if (!formData.bathrooms || formData.bathrooms <= 0)
-      newErrors.bathrooms = "At least 1 bathroom required";
-    if (selectedImages.length === 0)
-      newErrors.images = "At least one image is required";
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+  const handleImageChange = (e) => {
+    setNewImages([...e.target.files]);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!validateInputs()) return;
-
     try {
       const formDataObj = new FormData();
+
       Object.entries(formData).forEach(([key, value]) => {
         if (Array.isArray(value)) {
-          formDataObj.append(key, JSON.stringify(value));
+          formDataObj.append(key, JSON.stringify(value)); 
         } else {
           formDataObj.append(key, value);
         }
       });
 
-      selectedImages.forEach((image) => {
-        formDataObj.append("images", image);
-      });
+      if (newImages.length > 0) {
+        newImages.forEach((image) => {
+          formDataObj.append("images", image);
+        });
+      } else {
+        formDataObj.append("existingImages", JSON.stringify(formData.images)); 
+      }
 
-      const response = await axios.post(
-        "http://localhost:5000/api/accommodations",
+      await axios.put(
+        `http://localhost:5000/api/accommodations/${id}`,
         formDataObj,
         {
           headers: {
@@ -126,23 +93,20 @@ const CreateListingPage = () => {
         }
       );
 
-      console.log(" Listing created successfully:", response.data);
-      alert("Listing created successfully!");
+      alert("Listing updated successfully!");
       navigate("/view-listings");
     } catch (error) {
-      console.error(
-        " Error creating listing:",
-        error.response ? error.response.data : error.message
-      );
-      alert("Failed to create listing. Try again!");
+      console.error("Error updating listing:", error);
+      alert("Failed to update listing. Try again!");
     }
   };
+
   return (
     <>
       <AdminNav />
 
       <div className="create-listing-container">
-        <h1>Create Listing</h1>
+        <h1>Update Listing</h1>
 
         <div className="create-listing-form-container">
           <form className="create-listing-form1" onSubmit={handleSubmit}>
@@ -154,7 +118,6 @@ const CreateListingPage = () => {
                 value={formData.title}
                 onChange={handleChange}
               />
-              {errors.title && <p className="error">{errors.title}</p>}
             </div>
 
             <div className="listinglocation-container">
@@ -165,7 +128,6 @@ const CreateListingPage = () => {
                 value={formData.location}
                 onChange={handleChange}
               />
-              {errors.location && <p className="error">{errors.location}</p>}
             </div>
 
             <div className="listingdescription-container">
@@ -175,9 +137,6 @@ const CreateListingPage = () => {
                 value={formData.description}
                 onChange={handleChange}
               />
-              {errors.description && (
-                <p className="error">{errors.description}</p>
-              )}
             </div>
 
             <div className="checkbox-options">
@@ -207,21 +166,18 @@ const CreateListingPage = () => {
                 <label>Amenities</label>
                 <input
                   type="text"
+                  name="amenities"
                   className="amenities-list"
-                  value={amenityInput}
-                  onChange={(e) => setAmenityInput(e.target.value)}
+                  value={formData.amenities.join(" · ")}
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      amenities: e.target.value.split(", "),
+                    })
+                  }
                 />
               </div>
-              <button className="amenities-add-btn" onClick={handleAddAmenity}>
-                Add
-              </button>
             </div>
-
-            <ul>
-              {formData.amenities.map((amenity, index) => (
-                <li key={index}>{amenity}</li>
-              ))}
-            </ul>
           </form>
 
           <form className="create-listing-form2" onSubmit={handleSubmit}>
@@ -235,7 +191,6 @@ const CreateListingPage = () => {
                   value={formData.price}
                   onChange={handleChange}
                 />
-                {errors.price && <p className="error">{errors.price}</p>}
               </div>
 
               <div className="label-input">
@@ -251,7 +206,6 @@ const CreateListingPage = () => {
                   <option value="Private Room">Private room</option>
                   <option value="Shared Room">Shared room</option>
                 </select>
-                {errors.type && <p className="error">{errors.type}</p>}
               </div>
             </div>
 
@@ -288,24 +242,25 @@ const CreateListingPage = () => {
               </div>
             </div>
 
-            <div className="image-upload-container">
+            <div className="image-update-container">
+              <label>Current Images</label>
+              <div className="image-preview">
+                {formData.images.map((img, index) => (
+                  <img key={index} src={img} alt="Listing" width="100px" />
+                ))}
+              </div>
+
+              <label>Upload New Images</label>
               <input type="file" multiple onChange={handleImageChange} />
-              {errors.images && <p className="error">{errors.images}</p>}
             </div>
 
-            <button className="upload-image-btn">Upload images</button>
-
-            <div className="submit-form-btns">
-              <button className="create-btn" onSubmit={handleSubmit}>
-                Create
-              </button>
-              <button
-                className="cancel-btn"
-                onClick={() => navigate("/view-listings")}
-              >
-                Cancel
-              </button>
-            </div>
+            <button
+              className="upload-image-btn"
+              type="submit"
+              onClick={() => navigate("/view-listings")}
+            >
+              Update listing
+            </button>
           </form>
         </div>
       </div>
@@ -313,4 +268,4 @@ const CreateListingPage = () => {
   );
 };
 
-export default CreateListingPage;
+export default UpdateListingPage;

@@ -19,21 +19,18 @@ export const register = async (req, res) => {
         if (existingUser) {
             return res.status(400).json({ message: 'Username already taken' });
         }
-
-        const saltRounds = 10;
-        const hashedPassword = await bcrypt.hash(password, saltRounds);
   
         const newUser = new User({
             username,
-            password: hashedPassword,
+            password,
             role: userRole, 
         });
   
         await newUser.save();
-        res.status(201).json({ message: 'User created successfully' });
+        res.status(201).json({ message: 'User registered successfully' });
     } catch (error) {
         console.error(error);
-        res.status(500).json({ message: 'Error creating user' });
+        res.status(500).json({ message: 'User already exists' });
     }
 };
 

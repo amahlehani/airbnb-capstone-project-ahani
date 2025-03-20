@@ -1,13 +1,17 @@
 import mongoose from "mongoose";
 
 const AccommodationSchema = new mongoose.Schema({
+    id: {
+        type: Number,
+        required: true,
+    },
     title: {
         type: String,
         required: true,
     },
     type: {
         type: String,
-        enum: ["Entire apartment", "Private room", "Shared room"],
+        enum: ["Entire Apartment", "Private Room", "Shared Room"],
         required: true,
     },
     location: {
@@ -41,6 +45,7 @@ const AccommodationSchema = new mongoose.Schema({
     rating: {
         type: Number,
         required: true,
+        default: 0,
     },
     reviews: {
         type: Number,

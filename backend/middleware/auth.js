@@ -1,4 +1,7 @@
 import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const auth = (roles = []) => {
     if (typeof roles === "string") roles = [roles];
